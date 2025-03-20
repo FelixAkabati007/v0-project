@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJISUMAN SENIOR HIGH SCHOOL</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <div class="logo-group">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/favicon.ico-FLH9UaL4SthyMPodGqsyZY6GYxApWZ.png"
+            alt="School Logo"
+            class="logo"
+          />
+          <h1 class="school-name">EJISUMAN SENIOR HIGH SCHOOL</h1>
+        </div>
+        <div class="nav-links">
+          <a href="#home">HOME</a>
+          <a href="#admissions">ADMISSIONS</a>
+          <a href="#academics">ACADEMICS</a>
+          <a href="#facilities">FACILITIES</a>
+          <button class="btn secondary cssps-btn">Check CSSPS</button>
+        </div>
+        <button class="mobile-menu-btn" type="button" title="Open Menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/entrance.jpg-ObyaPSDHPCX2UCdsFAe4Hwtw26N3TW.jpeg"
+        alt="School Entrance"
+        class="hero-image"
+      />
+      <div class="hero-content">
+        <span class="badge secondary animate-bounce">2025 Admissions Open</span>
+        <h1>Excellence Through Knowledge</h1>
+        <p>Join one of Ghana's premier educational institutions</p>
+        <div class="hero-buttons">
+          <button class="btn primary">Apply Now</button>
+          <button class="btn outline virtual-tour-btn">Virtual Tour</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Ticker -->
+    <div class="news-ticker">
+      <div class="container ticker-container">
+        <span class="badge secondary">ANNOUNCEMENTS</span>
+        <p class="marquee">
+          WASSCE Registration Ends: June 25, 2025 | STEM Innovation Fair: March
+          15, 2025 | School Reopens: April 2, 2025
+        </p>
+      </div>
+    </div>
+
+    <!-- Programs Section -->
+    <section class="programs">
+      <div class="container">
+        <h2>Academic Programs</h2>
+        <div class="tabs">
+          <div class="tab-headers">
+            <button class="tab-header active" data-tab="science">
+              Science
+            </button>
+            <button class="tab-header" data-tab="business">Business</button>
+            <button class="tab-header" data-tab="arts">Arts</button>
+          </div>
+          <div class="tab-content active" id="science">
+            <!-- Program cards here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal cssps-modal">
+      <div class="modal-content">
+        <h3>Check Your CSSPS Placement</h3>
+        <!-- Modal content -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
