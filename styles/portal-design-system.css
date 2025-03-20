@@ -1,0 +1,562 @@
+/* Portal Design System - Shared styles for all portals */
+
+/* Color Variables - Accessible contrast ratios */
+:root {
+  --portal-primary: 215 100% 50%;
+  --portal-primary-foreground: 0 0% 100%;
+  --portal-secondary: 262 83% 58%;
+  --portal-secondary-foreground: 0 0% 100%;
+  --portal-success: 142 71% 45%;
+  --portal-success-foreground: 0 0% 100%;
+  --portal-warning: 38 92% 50%;
+  --portal-warning-foreground: 0 0% 10%;
+  --portal-danger: 0 84% 60%;
+  --portal-danger-foreground: 0 0% 100%;
+  --portal-info: 199 89% 48%;
+  --portal-info-foreground: 0 0% 100%;
+
+  /* Neutral colors */
+  --portal-background: 0 0% 100%;
+  --portal-foreground: 222 47% 11%;
+  --portal-muted: 210 40% 96.1%;
+  --portal-muted-foreground: 215 16% 47%;
+
+  /* Card and border styles */
+  --portal-card-radius: 12px;
+  --portal-border-radius: 8px;
+  --portal-button-radius: 6px;
+
+  /* Spacing */
+  --portal-space-xs: 0.25rem;
+  --portal-space-sm: 0.5rem;
+  --portal-space-md: 1rem;
+  --portal-space-lg: 1.5rem;
+  --portal-space-xl: 2rem;
+  --portal-space-2xl: 3rem;
+
+  /* Shadows */
+  --portal-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --portal-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --portal-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --portal-shadow-hover: 0 10px 35px -3px rgb(0 0 0 / 0.15), 0 4px 10px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Dark mode variables */
+.dark {
+  --portal-primary: 215 100% 60%;
+  --portal-primary-foreground: 0 0% 100%;
+  --portal-secondary: 262 83% 65%;
+  --portal-secondary-foreground: 0 0% 100%;
+  --portal-success: 142 71% 45%;
+  --portal-success-foreground: 0 0% 100%;
+  --portal-warning: 38 92% 50%;
+  --portal-warning-foreground: 0 0% 10%;
+  --portal-danger: 0 84% 60%;
+  --portal-danger-foreground: 0 0% 100%;
+  --portal-info: 199 89% 48%;
+  --portal-info-foreground: 0 0% 100%;
+
+  --portal-background: 222 47% 11%;
+  --portal-foreground: 210 40% 98%;
+  --portal-muted: 217 32% 17%;
+  --portal-muted-foreground: 215 20% 65%;
+}
+
+/* Portal card styles */
+.portal-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-200 hover:shadow-lg border border-gray-100 dark:border-gray-700;
+  border-radius: var(--portal-card-radius);
+  background-color: hsl(var(--portal-background));
+  border: 1px solid hsl(var(--portal-muted));
+  box-shadow: var(--portal-shadow-md);
+  transition: all 0.2s ease-in-out;
+}
+
+.portal-card:hover {
+  box-shadow: var(--portal-shadow-hover);
+}
+
+/* Portal card variants */
+.portal-card-primary {
+  border-left: 4px solid hsl(var(--portal-primary));
+}
+
+.portal-card-secondary {
+  border-left: 4px solid hsl(var(--portal-secondary));
+}
+
+.portal-card-success {
+  border-left: 4px solid hsl(var(--portal-success));
+}
+
+.portal-card-warning {
+  border-left: 4px solid hsl(var(--portal-warning));
+}
+
+.portal-card-danger {
+  border-left: 4px solid hsl(var(--portal-danger));
+}
+
+.portal-card-info {
+  border-left: 4px solid hsl(var(--portal-info));
+}
+
+/* Portal buttons */
+.portal-button {
+  border-radius: var(--portal-button-radius);
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.portal-button:focus-visible {
+  outline: 2px solid hsl(var(--portal-primary));
+  outline-offset: 2px;
+}
+
+.portal-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Portal text elements */
+.portal-heading {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.portal-subheading {
+  color: hsl(var(--portal-muted-foreground));
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Animations */
+.portal-fade-in {
+  animation: portalFadeIn 0.3s ease-in-out forwards;
+}
+
+.portal-slide-in {
+  animation: portalSlideIn 0.3s ease-out forwards;
+}
+
+@keyframes portalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes portalSlideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Accessibility focus styles */
+*:focus-visible {
+  outline: 2px solid hsl(var(--portal-primary));
+  outline-offset: 2px;
+}
+
+/* Skip to content link for screen readers */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-to-content:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background-color: hsl(var(--portal-background));
+  color: hsl(var(--portal-foreground));
+  z-index: 9999;
+  font-weight: 500;
+}
+
+/* Portal navigation */
+.portal-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: var(--portal-border-radius);
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  gap: 0.75rem;
+}
+
+.portal-nav-link:hover {
+  background-color: hsl(var(--portal-muted) / 0.5);
+}
+
+.portal-nav-link.active {
+  background-color: hsl(var(--portal-primary) / 0.1);
+  color: hsl(var(--portal-primary));
+}
+
+/* Portal layout components */
+.portal-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.portal-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.portal-sidebar-collapsed {
+  width: 80px;
+}
+
+.portal-main {
+  flex: 1;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .portal-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 50;
+    transform: translateX(-100%);
+  }
+
+  .portal-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .portal-main {
+    margin-left: 0 !important;
+  }
+}
+
+/* Portal Design System CSS */
+
+/* Typography */
+.portal-heading-1 {
+  @apply text-3xl font-bold tracking-tight;
+}
+
+.portal-heading-2 {
+  @apply text-2xl font-semibold tracking-tight;
+}
+
+.portal-heading-3 {
+  @apply text-xl font-semibold tracking-tight;
+}
+
+.portal-text-lg {
+  @apply text-lg font-medium;
+}
+
+.portal-text-base {
+  @apply text-base;
+}
+
+.portal-text-sm {
+  @apply text-sm;
+}
+
+.portal-text-xs {
+  @apply text-xs;
+}
+
+/* Card Styles */
+.portal-card-header {
+  @apply p-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900;
+}
+
+.portal-card-body {
+  @apply p-4;
+}
+
+.portal-card-footer {
+  @apply p-4 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900;
+}
+
+/* Button Styles */
+.portal-button-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+}
+
+.portal-button-secondary {
+  @apply bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+}
+
+.portal-button-success {
+  @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+}
+
+.portal-button-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+}
+
+.portal-button-warning {
+  @apply bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium py-2 px-4 rounded-md transition-colors duration-200;
+}
+
+.portal-button-info {
+  @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+}
+
+.portal-button-outline {
+  @apply border border-gray-300 dark:border-gray-600 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium py-2 px-4 rounded-md transition-colors duration-200;
+}
+
+/* Form Styles */
+.portal-input {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+}
+
+.portal-select {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+}
+
+.portal-textarea {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+}
+
+.portal-checkbox {
+  @apply h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded;
+}
+
+.portal-radio {
+  @apply h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300;
+}
+
+/* Table Styles */
+.portal-table {
+  @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.portal-table-header {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+.portal-table-header-cell {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider;
+}
+
+.portal-table-body {
+  @apply bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800;
+}
+
+.portal-table-row {
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-150;
+}
+
+.portal-table-cell {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100;
+}
+
+/* Badge Styles */
+.portal-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.portal-badge-primary {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.portal-badge-secondary {
+  @apply bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300;
+}
+
+.portal-badge-success {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
+}
+
+.portal-badge-danger {
+  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300;
+}
+
+.portal-badge-warning {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.portal-badge-info {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+/* Alert Styles */
+.portal-alert {
+  @apply p-4 rounded-md mb-4;
+}
+
+.portal-alert-primary {
+  @apply bg-blue-50 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.portal-alert-secondary {
+  @apply bg-purple-50 text-purple-800 dark:bg-purple-900 dark:text-purple-300;
+}
+
+.portal-alert-success {
+  @apply bg-green-50 text-green-800 dark:bg-green-900 dark:text-green-300;
+}
+
+.portal-alert-danger {
+  @apply bg-red-50 text-red-800 dark:bg-red-900 dark:text-red-300;
+}
+
+.portal-alert-warning {
+  @apply bg-yellow-50 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.portal-alert-info {
+  @apply bg-blue-50 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+/* Navigation Styles */
+.portal-nav-item {
+  @apply flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150;
+}
+
+.portal-nav-item-active {
+  @apply bg-blue-50 text-blue-700 dark:bg-blue-900 dark:text-blue-200;
+}
+
+.portal-nav-item-inactive {
+  @apply text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100;
+}
+
+/* Sidebar Styles */
+.portal-sidebar {
+  @apply h-screen w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col;
+}
+
+.portal-sidebar-header {
+  @apply h-16 flex items-center px-4 border-b border-gray-200 dark:border-gray-800;
+}
+
+.portal-sidebar-content {
+  @apply flex-1 overflow-y-auto py-4 px-3;
+}
+
+.portal-sidebar-footer {
+  @apply p-4 border-t border-gray-200 dark:border-gray-800;
+}
+
+/* Dashboard Styles */
+.portal-dashboard-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+}
+
+.portal-dashboard-grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.portal-dashboard-grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+.portal-dashboard-stat {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border border-gray-100 dark:border-gray-700;
+}
+
+.portal-dashboard-stat-title {
+  @apply text-sm font-medium text-gray-500 dark:text-gray-400;
+}
+
+.portal-dashboard-stat-value {
+  @apply text-3xl font-bold text-gray-900 dark:text-gray-100 mt-1;
+}
+
+.portal-dashboard-stat-description {
+  @apply text-sm text-gray-500 dark:text-gray-400 mt-1;
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 0%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 0%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 0%;
+  --accent: 0 0% 0%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 0%;
+  --input: 0 0% 0%;
+  --ring: 0 0% 0%;
+}
+
+.high-contrast.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 0%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 100%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 100%;
+  --accent: 0 0% 100%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 100%;
+  --input: 0 0% 100%;
+  --ring: 0 0% 100%;
+}
+
+.high-contrast a {
+  text-decoration: underline;
+}
+
+.high-contrast button:focus,
+.high-contrast a:focus,
+.high-contrast input:focus,
+.high-contrast select:focus,
+.high-contrast textarea:focus {
+  outline: 3px solid yellow !important;
+  outline-offset: 2px !important;
+}
+
+.portal-card-header {
+  @apply p-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900;
+}
+
+.portal-card-body {
+  @apply p-4;
+}
+
+.portal-card-footer {
+  @apply p-4 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900;
+}
+
